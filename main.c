@@ -29,6 +29,6 @@ int main(int argc, char **argv) {
     free(wincfg->mainWincfg);
     free(wincfg->cmdWincfg);
     free(wincfg);
-    // puts(getFiles("/")[0]);
+    // puts(getFiles(".")[0]);
     return 0;
 }

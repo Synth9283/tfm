@@ -1,23 +1,22 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
+#include <string.h>
 #include <dirent.h>
 
 char **getFiles(char *path) {
-    struct dirent *entry;
-    char **files = NULL;
+    struct dirent *entry = NULL;
+    char **files = malloc(256*30);
     DIR *dir = opendir(path);
 
     if (dir == NULL) {
-        char *file = malloc(256);
+        char *file = malloc(5);
         file = "NULL";
         files[0] = file;
     }
     else {
-        for (uint16_t i=0; entry; i++) {
+        for (uint16_t i=0; ((entry = readdir(dir)) != NULL); i++) {
             entry = readdir(dir);
-            char *file = malloc(256);
-            file = entry->d_name;
             files[i] = entry->d_name;
         }
     }
