@@ -6,19 +6,24 @@
 
 char **getFiles(char *path) {
     struct dirent *entry = NULL;
-    char **files = malloc(256*30);
+    char **files = malloc(255);
     DIR *dir = opendir(path);
 
     if (dir == NULL) {
-        char *file = malloc(5);
-        file = "NULL";
+        char *file = malloc(1);
+        file = '\0';
         files[0] = file;
     }
     else {
-        for (uint16_t i=0; ((entry = readdir(dir)) != NULL); i++) {
-            entry = readdir(dir);
-            files[i] = entry->d_name;
+        uint8_t line = 0;
+        for (uint16_t i=0; ((entry = readdir(dir)) != NULL); i++, line++) {
+            char *file = malloc(strlen(entry->d_name));
+            strcpy(file, entry->d_name);
+            files[i] = file;
         }
+        char *file = malloc(1);
+        file = '\0';
+        files[line] = file;
     }
 
     closedir(dir);
