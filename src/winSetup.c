@@ -17,6 +17,7 @@ Wincfg_t *winSetup() {
     wincfg->mainWincfg->x = 0;
     wincfg->mainWincfg->h = (wincfg->h/4)*3;
     wincfg->mainWincfg->w = wincfg->w;
+    wincfg->mainWincfg->selected = 0;
     wincfg->cmdWincfg->y = wincfg->mainWincfg->h;
     wincfg->cmdWincfg->x = 0;
     wincfg->cmdWincfg->h = wincfg->h-wincfg->mainWincfg->h;

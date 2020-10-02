@@ -3,7 +3,7 @@
 #include <ncurses.h>
 
 typedef struct {
-    uint16_t y, x, w, h;
+    uint16_t y, x, w, h, fileCount, selected;
     WINDOW *mainWin;
 } MainWincfg_t;
 

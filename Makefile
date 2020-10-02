@@ -12,4 +12,4 @@ $(target): main.c $(obj)
 	gcc -c $(flags) $^ -o $@
 
 clean:
-	rm -rf src/*.o $(target)
+	rm -rfv src/*.o $(target)

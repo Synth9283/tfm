@@ -21,10 +21,17 @@ int main(int argc, char **argv) {
         else if (ch == 'q') break;
         else {
             switch(ch) {
-                case KEY_DOWN: break;
-                case KEY_UP: break;
+                case KEY_DOWN: {
+                    if (wincfg->mainWincfg->selected != wincfg->mainWincfg->fileCount) wincfg->mainWincfg->selected++;
+                    break;
+                }
+                case KEY_UP: {
+                    if (wincfg->mainWincfg->selected != 0) wincfg->mainWincfg->selected--;
+                    break;
+                }
                 default: break;
             }
+            showFiles(wincfg->mainWincfg, getFiles("."));
             wrefresh(wincfg->mainWincfg->mainWin);
         }
     }
