@@ -4,6 +4,7 @@
 
 typedef struct {
     uint16_t y, x, w, h, fileCount, selected;
+    char *currentDir;
     WINDOW *mainWin;
 } MainWincfg_t;
 

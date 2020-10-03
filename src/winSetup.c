@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <ncurses.h>
 #include "../libs/wincfg.h"
+#include "../libs/getCwd.h"
 
 Wincfg_t *winSetup() {
     initscr();
@@ -18,6 +19,7 @@ Wincfg_t *winSetup() {
     wincfg->mainWincfg->h = (wincfg->h/4)*3;
     wincfg->mainWincfg->w = wincfg->w;
     wincfg->mainWincfg->selected = 0;
+    wincfg->mainWincfg->currentDir = getCwd();
     wincfg->cmdWincfg->y = wincfg->mainWincfg->h;
     wincfg->cmdWincfg->x = 0;
     wincfg->cmdWincfg->h = wincfg->h-wincfg->mainWincfg->h;

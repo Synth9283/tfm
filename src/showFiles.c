@@ -5,10 +5,10 @@
 #include "../libs/wincfg.h"
 #include "../libs/getFiles.h"
 
-void showFiles(MainWincfg_t *win, char *dir) {
-    char **files = getFiles(dir);
+void showFiles(MainWincfg_t *win) {
+    char **files = getFiles(win->currentDir);
     box(win->mainWin, 0, 0);
-    mvwprintw(win->mainWin, 0, 0, dir);
+    mvwprintw(win->mainWin, 0, 0, win->currentDir);
     win->fileCount = 0;
     for (uint16_t i=0; files[i]; i++, win->fileCount++) {
         // if (i == win->h) return;

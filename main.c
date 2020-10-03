@@ -1,20 +1,20 @@
 #include <stdlib.h>
 #include <stdint.h>
+#include <string.h>
 #include <ncurses.h>
 #include "libs/wincfg.h"
 #include "libs/winSetup.h"
-#include "libs/getFiles.h"
 #include "libs/showFiles.h"
 #include "libs/getCwd.h"
 
 int main(int argc, char **argv) {
-    (void)argc; (void)argv;
+    (void)argv;
 
     uint16_t ch;
     Wincfg_t *wincfg = winSetup();
+    if (argc>1) strcpy(wincfg->mainWincfg->currentDir, argv[1]);
     refresh();
-    char *cwd = getCwd();
-    showFiles(wincfg->mainWincfg, cwd);
+    showFiles(wincfg->mainWincfg);
     box(wincfg->cmdWincfg->cmdWin, 0, 0);
     mvwprintw(wincfg->cmdWincfg->cmdWin, 0, 0, "Shell");
     wrefresh(wincfg->cmdWincfg->cmdWin);
@@ -36,14 +36,14 @@ int main(int argc, char **argv) {
                 }
                 default: break;
             }
-            showFiles(wincfg->mainWincfg, cwd);
+            showFiles(wincfg->mainWincfg);
         }
     }
 
     endwin();
+    free(wincfg->mainWincfg->currentDir);
     free(wincfg->mainWincfg);
     free(wincfg->cmdWincfg);
     free(wincfg);
-    free(cwd);
     return 0;
 }
