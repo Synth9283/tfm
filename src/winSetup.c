@@ -7,6 +7,7 @@ Wincfg_t *winSetup() {
     initscr();
     cbreak();
     noecho();
+    curs_set(0);
     keypad(stdscr, TRUE);
     Wincfg_t *wincfg = malloc(sizeof(Wincfg_t));
     MainWincfg_t *mainWincfg = malloc(sizeof(MainWincfg_t));
