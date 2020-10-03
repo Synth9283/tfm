@@ -17,7 +17,7 @@ char **getFiles(char *path) {
     else {
         uint8_t line = 0;
         for (uint16_t i=0; ((entry = readdir(dir)) != NULL);) {
-            if (strcmp(".", entry->d_name)) {
+            if (strcmp(".", entry->d_name) && strcmp("..", entry->d_name)) {
                 char *file = malloc(strlen(entry->d_name));
                 strcpy(file, entry->d_name);
                 files[i] = file;

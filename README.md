@@ -8,7 +8,8 @@ A light weight TUI file manager made in C
 - Easy to edit config files
 - Subprocess shell
 - Keybinds
-    - [ ] `o`: Open file or open directory
+    - [ ] `->`: (Right arrow key) Open file or open directory
+    - [ ] `<-`: (Left arrow key) Go to parent directory
     - [ ] `c`: Cut file
     - [ ] `y`: Copy file
     - [ ] `p`: Paste file
