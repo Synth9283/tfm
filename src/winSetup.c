@@ -25,13 +25,5 @@ Wincfg_t *winSetup() {
     wincfg->mainWincfg->mainWin = newwin(wincfg->mainWincfg->h, wincfg->mainWincfg->w, wincfg->mainWincfg->y, wincfg->mainWincfg->x);
     wincfg->cmdWincfg->cmdWin = newwin(wincfg->cmdWincfg->h, wincfg->cmdWincfg->w, wincfg->cmdWincfg->y, wincfg->cmdWincfg->x);
 
-    box(wincfg->mainWincfg->mainWin, 0, 0);
-    box(wincfg->cmdWincfg->cmdWin, 0, 0);
-    mvwprintw(wincfg->mainWincfg->mainWin, 0, 0, "DIR");
-    mvwprintw(wincfg->cmdWincfg->cmdWin, 0, 0, "Shell");
-    refresh();
-    wrefresh(wincfg->mainWincfg->mainWin);
-    wrefresh(wincfg->cmdWincfg->cmdWin);
-
     return wincfg;
 }

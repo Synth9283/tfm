@@ -5,14 +5,19 @@
 #include "libs/winSetup.h"
 #include "libs/getFiles.h"
 #include "libs/showFiles.h"
+#include "libs/getCwd.h"
 
 int main(int argc, char **argv) {
     (void)argc; (void)argv;
 
     uint16_t ch;
     Wincfg_t *wincfg = winSetup();
-    showFiles(wincfg->mainWincfg, getFiles("."));
-    wrefresh(wincfg->mainWincfg->mainWin);
+    refresh();
+    char *cwd = getCwd();
+    showFiles(wincfg->mainWincfg, cwd);
+    box(wincfg->cmdWincfg->cmdWin, 0, 0);
+    mvwprintw(wincfg->cmdWincfg->cmdWin, 0, 0, "Shell");
+    wrefresh(wincfg->cmdWincfg->cmdWin);
 
     for (;;) {
         if ((ch = getch()) == ERR) {
@@ -31,8 +36,7 @@ int main(int argc, char **argv) {
                 }
                 default: break;
             }
-            showFiles(wincfg->mainWincfg, getFiles("."));
-            wrefresh(wincfg->mainWincfg->mainWin);
+            showFiles(wincfg->mainWincfg, cwd);
         }
     }
 
@@ -40,5 +44,6 @@ int main(int argc, char **argv) {
     free(wincfg->mainWincfg);
     free(wincfg->cmdWincfg);
     free(wincfg);
+    free(cwd);
     return 0;
 }

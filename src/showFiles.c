@@ -3,8 +3,12 @@
 #include <string.h>
 #include <ncurses.h>
 #include "../libs/wincfg.h"
+#include "../libs/getFiles.h"
 
-void showFiles(MainWincfg_t *win, char **files) {
+void showFiles(MainWincfg_t *win, char *dir) {
+    char **files = getFiles(dir);
+    box(win->mainWin, 0, 0);
+    mvwprintw(win->mainWin, 0, 0, dir);
     win->fileCount = 0;
     for (uint16_t i=0; files[i]; i++, win->fileCount++) {
         // if (i == win->h) return;
@@ -17,4 +21,5 @@ void showFiles(MainWincfg_t *win, char **files) {
         free(files[i]);
     }
     win->fileCount--;
+    wrefresh(win->mainWin);
 }
