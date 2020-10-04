@@ -5,12 +5,12 @@
 #include <dirent.h>
 #include "../libs/wincfg.h"
 
-void getFiles(MainWincfg_t *win, char *path) {
+void getFiles(MainWincfg_t *win) {
     for (uint16_t i=0; win->files[i]; i++) {
         free(win->files[i]);
     }
     struct dirent *entry = NULL;
-    DIR *dir = opendir(path);
+    DIR *dir = opendir(win->currentDir);
 
     if (dir == NULL) win->files[0] = '\0';
     else {
@@ -22,10 +22,6 @@ void getFiles(MainWincfg_t *win, char *path) {
                 win->files[i] = file;
                 i++;
                 win->fileCount++;
-            }
-            else {
-                i--;
-                win->fileCount--;
             }
         }
         win->files[win->fileCount] = '\0';

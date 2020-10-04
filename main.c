@@ -7,6 +7,7 @@
 #include "libs/getFiles.h"
 #include "libs/showFiles.h"
 #include "libs/getCwd.h"
+#include "libs/backDir.h"
 
 int main(int argc, char **argv) {
     (void)argv;
@@ -15,7 +16,7 @@ int main(int argc, char **argv) {
     Wincfg_t *wincfg = winSetup();
     if (argc>1) strcpy(wincfg->mainWincfg->currentDir, argv[1]);
     refresh();
-    getFiles(wincfg->mainWincfg, wincfg->mainWincfg->currentDir);
+    getFiles(wincfg->mainWincfg);
     showFiles(wincfg->mainWincfg);
     box(wincfg->cmdWincfg->cmdWin, 0, 0);
     mvwprintw(wincfg->cmdWincfg->cmdWin, 0, 0, "Shell");
@@ -34,6 +35,11 @@ int main(int argc, char **argv) {
                 }
                 case KEY_UP: {
                     if (wincfg->mainWincfg->selected != 0) wincfg->mainWincfg->selected--;
+                    break;
+                }
+                case KEY_LEFT: {
+                    backDir(wincfg->mainWincfg);
+                    getFiles(wincfg->mainWincfg);
                     break;
                 }
                 default: break;
