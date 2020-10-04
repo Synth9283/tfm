@@ -8,6 +8,7 @@
 #include "libs/showFiles.h"
 #include "libs/getCwd.h"
 #include "libs/backDir.h"
+#include "libs/forwardDir.h"
 
 int main(int argc, char **argv) {
     (void)argv;
@@ -39,6 +40,11 @@ int main(int argc, char **argv) {
                 }
                 case KEY_LEFT: {
                     backDir(wincfg->mainWincfg);
+                    getFiles(wincfg->mainWincfg);
+                    break;
+                }
+                case KEY_RIGHT: {
+                    forwardDir(wincfg->mainWincfg);
                     getFiles(wincfg->mainWincfg);
                     break;
                 }
