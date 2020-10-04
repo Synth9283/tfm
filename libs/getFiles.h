@@ -1,3 +1,3 @@
 #pragma once
 
-char **getFiles(char *path);
+void getFiles(MainWincfg_t *win, char *path);

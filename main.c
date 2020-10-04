@@ -4,6 +4,7 @@
 #include <ncurses.h>
 #include "libs/wincfg.h"
 #include "libs/winSetup.h"
+#include "libs/getFiles.h"
 #include "libs/showFiles.h"
 #include "libs/getCwd.h"
 
@@ -14,6 +15,7 @@ int main(int argc, char **argv) {
     Wincfg_t *wincfg = winSetup();
     if (argc>1) strcpy(wincfg->mainWincfg->currentDir, argv[1]);
     refresh();
+    getFiles(wincfg->mainWincfg, wincfg->mainWincfg->currentDir);
     showFiles(wincfg->mainWincfg);
     box(wincfg->cmdWincfg->cmdWin, 0, 0);
     mvwprintw(wincfg->cmdWincfg->cmdWin, 0, 0, "Shell");

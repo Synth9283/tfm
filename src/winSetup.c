@@ -21,6 +21,7 @@ Wincfg_t *winSetup() {
     wincfg->mainWincfg->w = wincfg->w;
     wincfg->mainWincfg->selected = 0;
     wincfg->mainWincfg->currentDir = getCwd();
+    wincfg->mainWincfg->files = malloc(255);
     wincfg->cmdWincfg->y = wincfg->mainWincfg->h;
     wincfg->cmdWincfg->x = 0;
     wincfg->cmdWincfg->h = wincfg->h-wincfg->mainWincfg->h;

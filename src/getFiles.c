@@ -3,37 +3,33 @@
 #include <stdint.h>
 #include <string.h>
 #include <dirent.h>
+#include "../libs/wincfg.h"
 
-char **getFiles(char *path) {
+void getFiles(MainWincfg_t *win, char *path) {
+    for (uint16_t i=0; win->files[i]; i++) {
+        free(win->files[i]);
+    }
     struct dirent *entry = NULL;
-    char **files = malloc(255);
     DIR *dir = opendir(path);
 
-    if (dir == NULL) {
-        char *file = malloc(1);
-        file = '\0';
-        files[0] = file;
-    }
+    if (dir == NULL) win->files[0] = '\0';
     else {
-        uint8_t line = 0;
+        win->fileCount = 0;
         for (uint16_t i=0; ((entry = readdir(dir)) != NULL);) {
             if (strcmp(".", entry->d_name) && strcmp("..", entry->d_name)) {
-                char *file = malloc(strlen(entry->d_name));
+                char *file = malloc(entry->d_reclen);
                 strcpy(file, entry->d_name);
-                files[i] = file;
+                win->files[i] = file;
                 i++;
-                line++;
+                win->fileCount++;
             }
             else {
                 i--;
-                line--;
+                win->fileCount--;
             }
         }
-        char *file = malloc(1);
-        file = '\0';
-        files[line] = file;
+        win->files[win->fileCount] = '\0';
+        win->fileCount--;
     }
-
     closedir(dir);
-    return files;
 }
