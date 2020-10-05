@@ -12,7 +12,7 @@ void getFiles(MainWincfg_t *win) {
     struct dirent *entry = NULL;
     DIR *dir = opendir(win->currentDir);
 
-    if (dir == NULL) win->files[0] = '\0';
+    if (!dir) win->files[0] = '\0';
     else {
         win->fileCount = 0;
         for (uint16_t i=0; ((entry = readdir(dir)) != NULL);) {
