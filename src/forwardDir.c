@@ -17,6 +17,7 @@ void forwardDir(MainWincfg_t *win) {
     if (dir) {
         strcpy(win->currentDir, tmpDir);
         win->selected = 0;
+        win->offset = 0;
     }
     closedir(dir);
     free(tmpDir);

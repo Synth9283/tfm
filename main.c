@@ -32,10 +32,12 @@ int main(int argc, char **argv) {
             switch(ch) {
                 case KEY_DOWN: {
                     if (wincfg->mainWincfg->selected != wincfg->mainWincfg->fileCount) wincfg->mainWincfg->selected++;
+                    if (!((wincfg->mainWincfg->selected-wincfg->mainWincfg->offset)%(wincfg->mainWincfg->h-2)) && (wincfg->mainWincfg->selected != wincfg->mainWincfg->fileCount)) wincfg->mainWincfg->offset++;
                     break;
                 }
                 case KEY_UP: {
                     if (wincfg->mainWincfg->selected != 0) wincfg->mainWincfg->selected--;
+                    if (((wincfg->mainWincfg->selected-wincfg->mainWincfg->offset) == -1) && wincfg->mainWincfg->offset) wincfg->mainWincfg->offset--;
                     break;
                 }
                 case KEY_LEFT: {
