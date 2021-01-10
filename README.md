@@ -2,7 +2,7 @@
 A light weight TUI file manager made in C
 ## Features
 - Cross platform
-    - [ ] Support for Windows
+    - [x] Support for Windows (Under development)
     - [ ] Support for MacOS
     - [x] Support for Linux
 - Easy to edit config files
@@ -20,3 +20,6 @@ A light weight TUI file manager made in C
     - [ ] `u`: Undo
     - [ ] `l`: Change directory
     - [ ] `h`: Display keybinds
+- Issues
+    - Windows
+        - [ ] Crashes when trying to go into a directory that does not have permissions
