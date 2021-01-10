@@ -2,11 +2,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
-#ifdef unix
-#include <unistd.h>
-#elif WIN32
 #include <dirent.h>
-#endif
 #include "../libs/wincfg.h"
 
 void getFiles(MainWincfg_t *win) {
