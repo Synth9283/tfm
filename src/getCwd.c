@@ -1,9 +1,9 @@
 #ifdef unix
 #include <unistd.h>
-#define GetCurrentDir _getcwd
+#define GetCurrentDir getcwd
 #elif WIN32
 #include <direct.h>
-#define GetCurrentDir getcwd
+#define GetCurrentDir _getcwd
 #endif
 #include <stdlib.h>
 
