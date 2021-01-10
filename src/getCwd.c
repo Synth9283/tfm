@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #ifdef unix
 #include <unistd.h>
 #define GetCurrentDir getcwd
@@ -5,7 +6,6 @@
 #include <direct.h>
 #define GetCurrentDir _getcwd
 #endif
-#include <stdlib.h>
 
 char *getCwd() {
     char *cwd = malloc(255);

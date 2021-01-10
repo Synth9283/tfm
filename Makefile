@@ -1,4 +1,5 @@
 target = tfm
+compiler = gcc
 src = $(wildcard src/*.c)
 obj = $(src:.c=.o)
 flags = -g -O3 -lncurses
@@ -6,10 +7,10 @@ flags = -g -O3 -lncurses
 all: $(target)
 
 $(target): main.c $(obj)
-	gcc $^ $(flags) -o $@
+	$(compiler) $^ $(flags) -o $@
 
 %.o: %.c
-	gcc -c $(flags) $^ -o $@
+	$(compiler) -c $(flags) $^ -o $@
 
 clean:
 	rm -rfv src/*.o $(target)

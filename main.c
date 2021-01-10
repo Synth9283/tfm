@@ -28,9 +28,7 @@ int main(int argc, char **argv) {
     wrefresh(wincfg->cmdWincfg->cmdWin);
 
     for (;;) {
-        if ((ch = getch()) == ERR) {
-            continue;
-        }
+        if ((ch = getch()) == ERR) continue;
         else if (ch == 'q') break;
         else {
             switch(ch) {

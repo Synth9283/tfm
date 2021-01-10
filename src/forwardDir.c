@@ -1,11 +1,12 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
-#include <dirent.h>
 #include "../libs/wincfg.h"
 #ifdef unix
+#include <unistd.h>
 #define DIRPATH '/'
-#elif _WIN32
+#elif WIN32
+#include <dirent.h>
 #define DIRPATH '\\'
 #endif
 
