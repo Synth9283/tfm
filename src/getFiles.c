@@ -6,7 +6,7 @@
 #include "../libs/wincfg.h"
 
 void getFiles(MainWincfg_t *win) {
-    for (uint16_t i=0; win->files[i]; i++) {
+    for (uint16_t i=0; !win->fileCount && i<win->fileCount; i++) {
         free(win->files[i]);
     }
     struct dirent *entry = NULL;

@@ -4,7 +4,7 @@
 #include "../libs/getFiles.h"
 #ifdef unix
 #define DIRPATH '/'
-#elif _WIN32
+#elif WIN32
 #define DIRPATH '\\'
 #endif
 

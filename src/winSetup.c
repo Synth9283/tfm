@@ -2,7 +2,7 @@
 #include <stdint.h>
 #ifdef unix
 #include <ncurses.h>
-#elif _WIN32
+#elif WIN32
 #include <ncursesw/curses.h>
 #endif
 #include "../libs/wincfg.h"
@@ -24,6 +24,8 @@ Wincfg_t *winSetup() {
     wincfg->mainWincfg->x = 0;
     wincfg->mainWincfg->h = (wincfg->h/4)*3;
     wincfg->mainWincfg->w = wincfg->w;
+    wincfg->mainWincfg->fileCount = 0;
+    wincfg->mainWincfg->offset = 0;
     wincfg->mainWincfg->selected = 0;
     wincfg->mainWincfg->currentDir = getCwd();
     wincfg->mainWincfg->files = malloc(UINT16_MAX);
