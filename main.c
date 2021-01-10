@@ -1,7 +1,11 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#ifdef unix
 #include <ncurses.h>
+#elif _WIN32
+#include <ncursesw/curses.h>
+#endif
 #include "libs/wincfg.h"
 #include "libs/winSetup.h"
 #include "libs/getFiles.h"

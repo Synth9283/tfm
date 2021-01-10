@@ -3,6 +3,11 @@
 #include <string.h>
 #include <dirent.h>
 #include "../libs/wincfg.h"
+#ifdef unix
+#define DIRPATH '/'
+#elif _WIN32
+#define DIRPATH '\\'
+#endif
 
 void forwardDir(MainWincfg_t *win) {
     if (!win->files[win->selected]) return;
@@ -10,7 +15,7 @@ void forwardDir(MainWincfg_t *win) {
     strcpy(tmpDir, win->currentDir);
     uint16_t tmpLen = strlen(tmpDir);
     tmpDir[tmpLen+1] = '\0';
-    if (tmpLen != 1) tmpDir[tmpLen] = '/';
+    if (tmpLen != 1) tmpDir[tmpLen] = DIRPATH;
     strcat(tmpDir, win->files[win->selected]);
     DIR *dir = opendir(tmpDir);
 

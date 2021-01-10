@@ -1,6 +1,10 @@
 #pragma once
 #include <stdint.h>
+#ifdef unix
 #include <ncurses.h>
+#elif _WIN32
+#include <ncursesw/curses.h>
+#endif
 
 typedef struct {
     uint16_t y, x, w, h, fileCount, offset, selected;

@@ -1,8 +1,8 @@
-#ifdef WINDOWS
-#include <direct.h>
-#define GetCurrentDir _getcwd
-#else
+#ifdef unix
 #include <unistd.h>
+#define GetCurrentDir _getcwd
+#elif WIN32
+#include <direct.h>
 #define GetCurrentDir getcwd
 #endif
 #include <stdlib.h>
