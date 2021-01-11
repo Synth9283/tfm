@@ -2,7 +2,7 @@ target = tfm
 compiler = gcc
 src = $(wildcard src/*.c)
 obj = $(src:.c=.o)
-flags = -g -O3 -lncurses
+flags = -g -O3 -static -lncurses
 
 all: $(target)
 
