@@ -9,7 +9,7 @@
 #endif
 
 void backDir(MainWincfg_t *win) {
-    if (!strcmp(win->currentDir, "/") || !strcmp(win->currentDir, "C:")) return;
+    if (!strcmp(win->currentDir, "/") || !strcmp(win->currentDir, "C:\\")) return;
     else {
         win->selected = 0;
         win->offset = 0;

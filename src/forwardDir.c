@@ -15,7 +15,7 @@ void forwardDir(MainWincfg_t *win) {
     strcpy(tmpDir, win->currentDir);
     uint16_t tmpLen = strlen(tmpDir);
     tmpDir[tmpLen+1] = '\0';
-    if (strcmp(tmpDir, "/") || strcmp(tmpDir, "C:")) tmpDir[tmpLen] = DIRPATH;
+    if (strcmp(tmpDir, "/") || strcmp(tmpDir, "C:\\")) tmpDir[tmpLen] = DIRPATH;
     strcat(tmpDir, win->files[win->selected]);
     DIR *dir = opendir(tmpDir);
 
