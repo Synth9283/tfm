@@ -73,16 +73,22 @@ int main(int argc, char **argv) {
                 else {
                     for (uint16_t i=0; i<wincfg->mainWincfg->w; i++) {
                         if (wincfg->mainWincfg->currentDir[i] == '\0') {
-                            if ((ch == KEY_BACKSPACE) || (ch == 127) || (ch == 8)) {
-                                if (i != 0) {
-                                    wincfg->mainWincfg->currentDir[i-1] = '\0';
-                                    mvwdelch(wincfg->mainWincfg->mainWin, 0, i-1);
+                            switch(ch) {
+                                case KEY_BACKSPACE:
+                                case 127:
+                                case 8: {
+                                    if (i != 0) {
+                                        wincfg->mainWincfg->currentDir[i-1] = '\0';
+                                        mvwdelch(wincfg->mainWincfg->mainWin, 0, i-1);
+                                    }
+                                    break;
                                 }
-                            }
-                            else {
-                                wincfg->mainWincfg->currentDir[i] = ch;
-                                mvwaddch(wincfg->mainWincfg->mainWin, 0, i, ch);
-                                wincfg->mainWincfg->currentDir[i+1] = '\0';
+                                default: {
+                                    wincfg->mainWincfg->currentDir[i] = ch;
+                                    mvwaddch(wincfg->mainWincfg->mainWin, 0, i, ch);
+                                    wincfg->mainWincfg->currentDir[i+1] = '\0';
+                                    break;
+                                }
                             }
                             break;
                         }
