@@ -18,7 +18,7 @@ A light weight TUI file manager made in C
     - [ ] `m`: Move file
     - [ ] `d`: Delete file
     - [ ] `u`: Undo
-    - [ ] `l`: Change directory
+    - [x] `l`: Change directory
     - [ ] `h`: Display keybinds
 - Issues
     - Windows

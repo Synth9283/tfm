@@ -20,6 +20,7 @@ Wincfg_t *winSetup() {
     wincfg->mainWincfg = mainWincfg;
     wincfg->cmdWincfg = cmdWincfg;
     getmaxyx(stdscr, wincfg->h, wincfg->w);
+    wincfg->mainWincfg->dirInput = 0;
     wincfg->mainWincfg->y = 0;
     wincfg->mainWincfg->x = 0;
     wincfg->mainWincfg->h = (wincfg->h/4)*3;
