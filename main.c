@@ -48,6 +48,8 @@ int main(int argc, char **argv) {
                         getFiles(wincfg->mainWincfg);
                         break;
                     }
+                    case KEY_ENTER:
+                    case 10:
                     case KEY_RIGHT: {
                         forwardDir(wincfg->mainWincfg);
                         getFiles(wincfg->mainWincfg);
