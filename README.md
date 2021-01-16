@@ -10,7 +10,7 @@ A light weight TUI file manager made in C
 - Keybinds
     - [x] `↑`: (Up arrow key) Select above
     - [x] `↓`: (Down arrow key) Select below
-    - [x] `→`: (Right arrow key) Open file or open directory
+    - [x] `→`: (Right arrow key || Enter key) Open file or open directory
     - [x] `←`: (Left arrow key) Go to parent directory
     - [ ] `c`: Cut file
     - [ ] `y`: Copy file
