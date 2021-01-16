@@ -13,6 +13,7 @@
 #include "libs/getCwd.h"
 #include "libs/backDir.h"
 #include "libs/forwardDir.h"
+#include "libs/delFile.h"
 
 int main(int argc, char **argv) {
     (void)argv;
@@ -52,6 +53,11 @@ int main(int argc, char **argv) {
                     case 10:
                     case KEY_RIGHT: {
                         forwardDir(wincfg->mainWincfg);
+                        getFiles(wincfg->mainWincfg);
+                        break;
+                    }
+                    case 'd': {
+                        delFile(wincfg->mainWincfg);
                         getFiles(wincfg->mainWincfg);
                         break;
                     }
