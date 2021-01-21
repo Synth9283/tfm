@@ -21,5 +21,8 @@ void showFiles(MainWincfg_t *win) {
         else mvwprintw(win->mainWin, i+1, 1, "%s", win->files[i+win->offset]);
         if (i == win->h-3) break;
     }
+    wattron(win->mainWin, A_REVERSE);
+    mvwprintw(win->mainWin, win->h-2, win->w-strlen(win->status)-2, win->status);
+    wattroff(win->mainWin, A_REVERSE);
     wrefresh(win->mainWin);
 }

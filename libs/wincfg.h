@@ -10,6 +10,7 @@ typedef struct {
     uint8_t dirInput;
     uint16_t y, x, w, h, fileCount, offset, selected;
     char *currentDir;
+    char *status;
     char **files;
     WINDOW *mainWin;
 } MainWincfg_t;

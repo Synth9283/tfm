@@ -23,6 +23,7 @@ int main(int argc, char **argv) {
     if (argc>1) strcpy(wincfg->mainWincfg->currentDir, argv[1]);
     refresh();
     getFiles(wincfg->mainWincfg);
+    strcpy(wincfg->mainWincfg->status, "Select");
     showFiles(wincfg->mainWincfg);
     box(wincfg->cmdWincfg->cmdWin, 0, 0);
     mvwprintw(wincfg->cmdWincfg->cmdWin, 0, 0, "Shell");
