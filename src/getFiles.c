@@ -12,12 +12,16 @@ void getFiles(MainWincfg_t *win) {
     struct dirent *entry = NULL;
     DIR *dir = opendir(win->currentDir);
 
-    if (!dir) win->files[0] = '\0';
+    if (!dir) {
+        win->fileCount = 0;
+        win->files[0] = malloc(1);
+        win->files[0] = '\0';
+    }
     else {
         win->fileCount = 0;
         for (uint16_t i=0; ((entry = readdir(dir)) != NULL);) {
             if (strcmp(".", entry->d_name) && strcmp("..", entry->d_name)) {
-                char *file = malloc(entry->d_reclen);
+                char *file = malloc(strlen(entry->d_name));
                 strcpy(file, entry->d_name);
                 win->files[i] = file;
                 i++;

@@ -7,11 +7,9 @@
 #endif
 
 typedef struct {
-    uint8_t dirInput;
+    uint8_t getInput, inputMode;
     uint16_t y, x, w, h, fileCount, offset, selected;
-    char *currentDir;
-    char *status;
-    char **files;
+    char *currentDir, *fileName, *status, **files;
     WINDOW *mainWin;
 } MainWincfg_t;
 

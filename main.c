@@ -14,6 +14,8 @@
 #include "libs/backDir.h"
 #include "libs/forwardDir.h"
 #include "libs/delFile.h"
+#include "libs/createFile.h"
+#include "libs/getInput.h"
 
 int main(int argc, char **argv) {
     (void)argv;
@@ -33,7 +35,7 @@ int main(int argc, char **argv) {
         if ((ch = getch()) == ERR) continue;
         else if (ch == 'q') break;
         else {
-            if (!wincfg->mainWincfg->dirInput) {
+            if (!wincfg->mainWincfg->getInput) {
                 switch(ch) {
                     case KEY_DOWN: {
                         if (wincfg->mainWincfg->selected != wincfg->mainWincfg->fileCount) wincfg->mainWincfg->selected++;
@@ -57,6 +59,11 @@ int main(int argc, char **argv) {
                         getFiles(wincfg->mainWincfg);
                         break;
                     }
+                    case 't': {
+                        wincfg->mainWincfg->getInput = 1;
+                        wincfg->mainWincfg->inputMode = 1;
+                        break;
+                    }
                     case 'd': {
                         delFile(wincfg->mainWincfg);
                         getFiles(wincfg->mainWincfg);
@@ -66,7 +73,8 @@ int main(int argc, char **argv) {
                         wmove(wincfg->mainWincfg->mainWin, 0, 0);
                         wclrtoeol(wincfg->mainWincfg->mainWin);
                         strcpy(wincfg->mainWincfg->currentDir, "\0");
-                        wincfg->mainWincfg->dirInput = 1;
+                        wincfg->mainWincfg->getInput = 1;
+                        wincfg->mainWincfg->inputMode = 1;
                         break;
                     }
                     default: break;
@@ -74,35 +82,9 @@ int main(int argc, char **argv) {
                 showFiles(wincfg->mainWincfg);
             }
             else {
-                if (ch == '\n') {
-                    getFiles(wincfg->mainWincfg);
-                    showFiles(wincfg->mainWincfg);
-                    wincfg->mainWincfg->dirInput = 0;
-                }
-                else {
-                    for (uint16_t i=0; i<wincfg->mainWincfg->w; i++) {
-                        if (wincfg->mainWincfg->currentDir[i] == '\0') {
-                            switch(ch) {
-                                case KEY_BACKSPACE:
-                                case 127:
-                                case 8: {
-                                    if (i != 0) {
-                                        wincfg->mainWincfg->currentDir[i-1] = '\0';
-                                        mvwdelch(wincfg->mainWincfg->mainWin, 0, i-1);
-                                    }
-                                    break;
-                                }
-                                default: {
-                                    wincfg->mainWincfg->currentDir[i] = ch;
-                                    mvwaddch(wincfg->mainWincfg->mainWin, 0, i, ch);
-                                    wincfg->mainWincfg->currentDir[i+1] = '\0';
-                                    break;
-                                }
-                            }
-                            break;
-                        }
-                    }
-                }
+                getInput(wincfg->mainWincfg, ch);
+                getFiles(wincfg->mainWincfg);
+                showFiles(wincfg->mainWincfg);
                 wrefresh(wincfg->mainWincfg->mainWin);
             }
         }

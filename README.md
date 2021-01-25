@@ -16,10 +16,8 @@ A light weight TUI file manager made in C
     - [ ] `y`: Copy file
     - [ ] `p`: Paste file
     - [ ] `m`: Move file
+    - [ ] `t`: Create file
     - [x] `d`: Delete file
     - [ ] `u`: Undo
     - [x] `l`: Change directory
     - [ ] `h`: Display keybinds
-- Issues
-    - Windows
-        - [ ] Crashes when trying to go into a directory that does not have permissions
