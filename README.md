@@ -32,5 +32,5 @@ make
 ```
 git clone https://github.com/synth9283/tfm.git
 cd tfm/
-make -flags=-ltinfo
+make flags="-O3 -static -lncurses -ltinfo"
 ```
