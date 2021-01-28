@@ -12,14 +12,14 @@
 
 // inputMode 1 = directory, 2 = fileName
 void getInput(MainWincfg_t *win, uint16_t ch) {
-    if (ch == '\n') {
-        getFiles(win);
-        showFiles(win);
-        win->getInput = 0;
-        win->inputMode = 0;
-    }
-    else {
-        if (win->inputMode = 1) {
+    if (win->inputMode == 1) {
+        if (ch == '\n') {
+            getFiles(win);
+            showFiles(win);
+            win->getInput = 0;
+            win->inputMode = 0;
+        }
+        else {
             for (uint16_t i=0; i<win->w; i++) {
                 if (win->currentDir[i] == '\0') {
                     switch(ch) {
@@ -43,8 +43,44 @@ void getInput(MainWincfg_t *win, uint16_t ch) {
                 }
             }
         }
-        // else if (win->inputMode = 2) {
-        //     createFile(win);
-        // }   
+        getFiles(win);
+        showFiles(win);
+        wrefresh(win->mainWin);
+    }
+    else if (win->inputMode == 2) {
+        if (ch == '\n') {
+            win->selected = 0;
+            win->offset = 0;
+            win->getInput = 0;
+            win->inputMode = 0;
+            createFile(win);
+            strcpy(win->fileName, "");
+            getFiles(win);
+            showFiles(win);
+        }
+        else {
+            for (uint16_t i=0; i<win->w; i++) {
+                if (win->fileName[i] == '\0') {
+                    switch(ch) {
+                        case KEY_BACKSPACE:
+                        case 127:
+                        case 8: {
+                            if (i != 0) {
+                                win->fileName[i-1] = '\0';
+                                mvwdelch(win->mainWin, win->h, i-1);
+                            }
+                            break;
+                        }
+                        default: {
+                            win->fileName[i] = ch;
+                            mvwaddch(win->mainWin, win->h, i, ch);
+                            win->fileName[i+1] = '\0';
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+        }
     }
 }

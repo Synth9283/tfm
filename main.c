@@ -60,8 +60,11 @@ int main(int argc, char **argv) {
                         break;
                     }
                     case 't': {
+                        wmove(wincfg->mainWincfg->mainWin, wincfg->mainWincfg->h, 0);
+                        wclrtoeol(wincfg->mainWincfg->mainWin);
+                        strcpy(wincfg->mainWincfg->fileName, "\0");
                         wincfg->mainWincfg->getInput = 1;
-                        wincfg->mainWincfg->inputMode = 1;
+                        wincfg->mainWincfg->inputMode = 2;
                         break;
                     }
                     case 'd': {
@@ -83,9 +86,6 @@ int main(int argc, char **argv) {
             }
             else {
                 getInput(wincfg->mainWincfg, ch);
-                getFiles(wincfg->mainWincfg);
-                showFiles(wincfg->mainWincfg);
-                wrefresh(wincfg->mainWincfg->mainWin);
             }
         }
     }

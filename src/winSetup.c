@@ -29,7 +29,7 @@ Wincfg_t *winSetup() {
     wincfg->mainWincfg->fileCount = 0;
     wincfg->mainWincfg->offset = 0;
     wincfg->mainWincfg->selected = 0;
-    wincfg->mainWincfg->status = "";
+    wincfg->mainWincfg->fileName = malloc(UINT16_MAX);
     wincfg->mainWincfg->status = malloc(7);
     wincfg->mainWincfg->currentDir = getCwd();
     wincfg->mainWincfg->files = malloc(UINT16_MAX);
