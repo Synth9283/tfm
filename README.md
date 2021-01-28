@@ -21,3 +21,16 @@ A light weight TUI file manager made in C
     - [ ] `u`: Undo
     - [x] `l`: Change directory
     - [ ] `h`: Display keybinds
+## Compiling
+- With make
+```
+git clone https://github.com/synth9283/tfm.git
+cd tfm/
+make
+```
+- If linking fails, try the following
+```
+git clone https://github.com/synth9283/tfm.git
+cd tfm/
+make -flags=-ltinfo
+```
