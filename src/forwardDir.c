@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <dirent.h>
-#include "../libs/wincfg.h"
+#include "libs/wincfg.h"
 #ifdef unix
 #define DIRPATH '/'
 #elif WIN32

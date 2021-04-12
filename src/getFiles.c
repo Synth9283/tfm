@@ -3,7 +3,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <dirent.h>
-#include "../libs/wincfg.h"
+#include "libs/wincfg.h"
 
 void getFiles(MainWincfg_t *win) {
     for (uint16_t i=0; !win->fileCount && i<win->fileCount; i++) {

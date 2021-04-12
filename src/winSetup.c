@@ -5,8 +5,8 @@
 #elif WIN32
 #include <ncursesw/curses.h>
 #endif
-#include "../libs/wincfg.h"
-#include "../libs/getCwd.h"
+#include "libs/wincfg.h"
+#include "libs/getCwd.h"
 
 Wincfg_t *winSetup() {
     initscr();

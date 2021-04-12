@@ -1,9 +1,9 @@
 #include <string.h>
-#include "../libs/wincfg.h"
-#include "../libs/getInput.h"
-#include "../libs/showFiles.h"
-#include "../libs/getFiles.h"
-#include "../libs/createFile.h"
+#include "libs/wincfg.h"
+#include "libs/getInput.h"
+#include "libs/showFiles.h"
+#include "libs/getFiles.h"
+#include "libs/createFile.h"
 #ifdef unix
 #include <ncurses.h>
 #elif WIN32

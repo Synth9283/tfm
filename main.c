@@ -6,16 +6,16 @@
 #elif WIN32
 #include <ncursesw/curses.h>
 #endif
-#include "libs/wincfg.h"
-#include "libs/winSetup.h"
-#include "libs/getFiles.h"
-#include "libs/showFiles.h"
-#include "libs/getCwd.h"
-#include "libs/backDir.h"
-#include "libs/forwardDir.h"
-#include "libs/delFile.h"
-#include "libs/createFile.h"
-#include "libs/getInput.h"
+#include "src/libs/wincfg.h"
+#include "src/libs/winSetup.h"
+#include "src/libs/getFiles.h"
+#include "src/libs/showFiles.h"
+#include "src/libs/getCwd.h"
+#include "src/libs/backDir.h"
+#include "src/libs/forwardDir.h"
+#include "src/libs/delFile.h"
+#include "src/libs/createFile.h"
+#include "src/libs/getInput.h"
 
 int main(int argc, char **argv) {
     (void)argv;

@@ -6,7 +6,7 @@
 #elif WIN32
 #include <ncursesw/curses.h>
 #endif
-#include "../libs/wincfg.h"
+#include "libs/wincfg.h"
 
 void showFiles(MainWincfg_t *win) {
     wclear(win->mainWin);

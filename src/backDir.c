@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <string.h>
-#include "../libs/wincfg.h"
-#include "../libs/getFiles.h"
+#include "libs/wincfg.h"
+#include "libs/getFiles.h"
 #ifdef unix
 #define DIRPATH '/'
 #elif WIN32

@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <dirent.h>
-#include "../libs/wincfg.h"
+#include "libs/wincfg.h"
 
 void delFile(MainWincfg_t *win) {
     if (!win->files[win->selected]) return;

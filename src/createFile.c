@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <dirent.h>
-#include "../libs/wincfg.h"
+#include "libs/wincfg.h"
 
 void createFile(MainWincfg_t *win) {
     free(win->status);
