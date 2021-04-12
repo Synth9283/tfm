@@ -1,6 +1,6 @@
-# tfm
+# 1. tfm
 A light weight TUI file manager made in C
-## Features
+## 1.1. Features
 - Cross platform
     - [x] Support for Windows (Under development)
     - [ ] Support for MacOS
@@ -21,7 +21,7 @@ A light weight TUI file manager made in C
     - [ ] `u`: Undo
     - [x] `l`: Change directory
     - [ ] `h`: Display keybinds
-## Compiling
+## 1.2. Compiling
 - With make
 ```
 git clone https://github.com/synth9283/tfm.git
