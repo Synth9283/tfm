@@ -1,4 +1,4 @@
 #pragma once
-#include "../libs/wincfg.h"
+#include "wincfg.h"
 
 void forwardDir(MainWincfg_t *win);

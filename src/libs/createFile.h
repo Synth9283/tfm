@@ -1,4 +1,4 @@
 #pragma once
-#include "../libs/wincfg.h"
+#include "wincfg.h"
 
 void createFile(MainWincfg_t *win);
