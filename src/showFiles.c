@@ -10,8 +10,8 @@
 
 void showFiles(MainWincfg_t *win) {
     wclear(win->mainWin);
-    if (win->getInput == 1) wborder(win->mainWin, '|', '|', ' ', '-', '-', '-', '-', '-');
-    else if (win->getInput == 2) wborder(win->mainWin, '|', '|', ' ', '-', '-', '-', '-', '-');
+    if (win->inputMode == 1) wborder(win->mainWin, '|', '|', ' ', '-', '-', '-', '-', '-');
+    else if (win->inputMode == 2) wborder(win->mainWin, '|', '|', '-', ' ', '-', '-', '-', '-');
     else wborder(win->mainWin, '|', '|', '-', '-', '-', '-', '-', '-');
     mvwprintw(win->mainWin, 0, 0, win->currentDir);
     for (uint16_t i=0; win->files[i+win->offset]; i++) {
