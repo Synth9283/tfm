@@ -20,6 +20,7 @@ void getInput(MainWincfg_t *win, uint16_t ch) {
             win->curseX = 0;
             win->getInput = 0;
             win->inputMode = 0;
+            strcpy(win->status, "Select");
         }
         else {
             for (uint16_t i=0; i<win->w; i++) {
@@ -61,6 +62,7 @@ void getInput(MainWincfg_t *win, uint16_t ch) {
             win->inputMode = 0;
             createFile(win);
             strcpy(win->fileName, "");
+            strcpy(win->status, "Select");
             getFiles(win);
             showFiles(win);
         }

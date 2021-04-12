@@ -64,6 +64,7 @@ int main(int argc, char **argv) {
                         wincfg->mainWincfg->curseX = 0;
                         wmove(wincfg->mainWincfg->mainWin, wincfg->mainWincfg->curseY, wincfg->mainWincfg->curseX);
                         strcpy(wincfg->mainWincfg->fileName, "\0");
+                        strcpy(wincfg->mainWincfg->status, "Create");
                         wincfg->mainWincfg->getInput = 1;
                         wincfg->mainWincfg->inputMode = 2;
                         break;
@@ -78,6 +79,7 @@ int main(int argc, char **argv) {
                         wincfg->mainWincfg->curseX = 0;
                         wmove(wincfg->mainWincfg->mainWin, wincfg->mainWincfg->curseY, wincfg->mainWincfg->curseX);
                         strcpy(wincfg->mainWincfg->currentDir, "\0");
+                        strcpy(wincfg->mainWincfg->status, "Dir");
                         wincfg->mainWincfg->getInput = 1;
                         wincfg->mainWincfg->inputMode = 1;
                         break;
