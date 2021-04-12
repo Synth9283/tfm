@@ -16,6 +16,8 @@ void getInput(MainWincfg_t *win, uint16_t ch) {
         if (ch == '\n') {
             getFiles(win);
             showFiles(win);
+            win->curseY = 0;
+            win->curseX = 0;
             win->getInput = 0;
             win->inputMode = 0;
         }
@@ -29,6 +31,7 @@ void getInput(MainWincfg_t *win, uint16_t ch) {
                             if (i != 0) {
                                 win->currentDir[i-1] = '\0';
                                 mvwdelch(win->mainWin, 0, i-1);
+                                if (win->curseX > 0) win->curseX--;
                             }
                             break;
                         }
@@ -36,6 +39,7 @@ void getInput(MainWincfg_t *win, uint16_t ch) {
                             win->currentDir[i] = ch;
                             mvwaddch(win->mainWin, 0, i, ch);
                             win->currentDir[i+1] = '\0';
+                            win->curseX++;
                             break;
                         }
                     }
@@ -49,6 +53,8 @@ void getInput(MainWincfg_t *win, uint16_t ch) {
     }
     else if (win->inputMode == 2) {
         if (ch == '\n') {
+            win->curseY = 0;
+            win->curseX = 0;
             win->selected = 0;
             win->offset = 0;
             win->getInput = 0;
@@ -67,20 +73,23 @@ void getInput(MainWincfg_t *win, uint16_t ch) {
                         case 8: {
                             if (i != 0) {
                                 win->fileName[i-1] = '\0';
-                                mvwdelch(win->mainWin, win->h, i-1);
+                                mvwdelch(win->mainWin, win->curseY, i-1);
+                                if (win->curseX > 0) win->curseX--;
                             }
                             break;
                         }
                         default: {
                             win->fileName[i] = ch;
-                            mvwaddch(win->mainWin, win->h, i, ch);
+                            mvwaddch(win->mainWin, win->curseY, i, ch);
                             win->fileName[i+1] = '\0';
+                            win->curseX++;
                             break;
                         }
                     }
                     break;
                 }
             }
+            wrefresh(win->mainWin);
         }
     }
 }

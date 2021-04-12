@@ -60,8 +60,9 @@ int main(int argc, char **argv) {
                         break;
                     }
                     case 't': {
-                        wmove(wincfg->mainWincfg->mainWin, wincfg->mainWincfg->h, 0);
-                        wclrtoeol(wincfg->mainWincfg->mainWin);
+                        wincfg->mainWincfg->curseY = wincfg->mainWincfg->h-1;
+                        wincfg->mainWincfg->curseX = 0;
+                        wmove(wincfg->mainWincfg->mainWin, wincfg->mainWincfg->curseY, wincfg->mainWincfg->curseX);
                         strcpy(wincfg->mainWincfg->fileName, "\0");
                         wincfg->mainWincfg->getInput = 1;
                         wincfg->mainWincfg->inputMode = 2;
@@ -73,8 +74,9 @@ int main(int argc, char **argv) {
                         break;
                     }
                     case 'l': {
-                        wmove(wincfg->mainWincfg->mainWin, 0, 0);
-                        wclrtoeol(wincfg->mainWincfg->mainWin);
+                        wincfg->mainWincfg->curseY = 0;
+                        wincfg->mainWincfg->curseX = 0;
+                        wmove(wincfg->mainWincfg->mainWin, wincfg->mainWincfg->curseY, wincfg->mainWincfg->curseX);
                         strcpy(wincfg->mainWincfg->currentDir, "\0");
                         wincfg->mainWincfg->getInput = 1;
                         wincfg->mainWincfg->inputMode = 1;

@@ -26,6 +26,8 @@ Wincfg_t *winSetup() {
     wincfg->mainWincfg->x = 0;
     wincfg->mainWincfg->h = (wincfg->h/4)*3;
     wincfg->mainWincfg->w = wincfg->w;
+    wincfg->mainWincfg->curseY = 0;
+    wincfg->mainWincfg->curseX = 0;
     wincfg->mainWincfg->fileCount = 0;
     wincfg->mainWincfg->offset = 0;
     wincfg->mainWincfg->selected = 0;

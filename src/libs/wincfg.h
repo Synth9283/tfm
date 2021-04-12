@@ -8,7 +8,7 @@
 
 typedef struct {
     uint8_t getInput, inputMode;
-    uint16_t y, x, w, h, fileCount, offset, selected;
+    uint16_t y, x, w, h, curseY, curseX, fileCount, offset, selected;
     char *currentDir, *fileName, *status, **files;
     WINDOW *mainWin;
 } MainWincfg_t;
