@@ -6,9 +6,9 @@
 void createFile(MainWincfg_t *win) {
     free(win->status);
     FILE *fptr = fopen(win->fileName, "w");
-    fclose(fptr);
 
     if (fptr) {
+        fclose(fptr);
         win->status = malloc(strlen(win->fileName)+9);
         strcpy(win->status, win->fileName);
         strcat(win->status, " created");
